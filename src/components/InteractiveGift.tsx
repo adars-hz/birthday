@@ -38,12 +38,13 @@ export default function InteractiveGift() {
       <div className="max-w-4xl mx-auto px-4 text-center w-full flex flex-col items-center">
         <h2 className="text-4xl md:text-6xl font-bold text-white mb-16 drop-shadow-md relative -top-24 md:-top-32">{siteContent.interactiveGift.title}</h2>
         
-        <div className="relative inline-block cursor-pointer" onClick={handleOpen}>
+        <div className="grid place-items-center cursor-pointer relative" onClick={handleOpen}>
           {/* Gift Box */}
           <motion.div
             animate={isOpen ? { scale: 0, opacity: 0 } : { scale: 1, opacity: 1, y: [0, -20, 0] }}
             transition={{ y: { duration: 2, repeat: Infinity, ease: "easeInOut" } }}
-            className="w-64 h-64 bg-pink-600 rounded-2xl shadow-2xl flex items-center justify-center relative border-4 border-pink-400"
+            className="col-start-1 row-start-1 w-64 h-64 bg-pink-600 rounded-2xl shadow-2xl flex items-center justify-center relative border-4 border-pink-400"
+            style={{ zIndex: isOpen ? 0 : 10 }}
           >
             <div className="absolute w-full h-8 bg-yellow-400 top-1/2 -translate-y-1/2 shadow-sm"></div>
             <div className="absolute h-full w-8 bg-yellow-400 left-1/2 -translate-x-1/2 shadow-sm"></div>
@@ -57,7 +58,7 @@ export default function InteractiveGift() {
               initial={{ scale: 0.5, opacity: 0, y: 50 }}
               animate={{ scale: 1, opacity: 1, y: 0 }}
               transition={{ type: "spring", bounce: 0.5 }}
-              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[85vw] max-w-sm glass p-6 md:p-8 rounded-3xl text-white shadow-2xl flex flex-col items-center"
+              className="col-start-1 row-start-1 w-[85vw] max-w-sm glass p-6 md:p-8 rounded-3xl text-white shadow-2xl flex flex-col items-center z-10 mt-8"
             >
               <h3 className="text-3xl font-bold mb-4 text-yellow-300 drop-shadow-md">{siteContent.interactiveGift.modalTitle}</h3>
               

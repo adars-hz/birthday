@@ -1,9 +1,9 @@
 export const siteContent = {
   hero: {
-    name: "Sri",
-    dateText: "Your Special Day",
-    message: "ഇടയ്ക്കിടെ എന്നെ ദേഷ്യം പിടിപ്പിക്കുന്ന, എന്നാൽ എനിക്ക് ഏറ്റവും പ്രിയപ്പെട്ട എന്റെ കുറുമ്പിപ്പെണ്ണിന് ജന്മദിനാശംസകൾ! നീ കൂടെയുള്ളപ്പോൾ ഒരു പ്രത്യേക സന്തോഷമാണ്. ഇന്ന് നിന്റെ ദിവസമാണ്, ഒരുപാട് സന്തോഷിക്കൂ! ഹാപ്പി ബർത്ത്ഡേ ടീച്ചേ🥳❤️",
-    buttonText: "Click for Surprise",
+    name: "my best friend",
+    dateText: "Wishing you a day filled with love, laughter, and unforgettable memories. Enjoy your special day to the fullest!",
+    message: "Thank you for always being there through the good times and the bad. Life is so much better with a friend like you by my side. Your support, laughter, and friendship mean more to me than words can express🥳.",
+    buttonText: "Click Me",
     photos: [
       "/images/photo1.jpg",
       "/images/photo2.jpg",
@@ -12,9 +12,8 @@ export const siteContent = {
     ]
   },
   interactiveGift: {
-    title: "A Special Surprise For You",
     modalTitle: "Surprise! 🎉",
-    modalMessage: "നമ്മൾ ഒന്നിച്ചുള്ള നിമിഷങ്ങളിൽ എനിക്ക് ഏറ്റവും പ്രിയപ്പെട്ടത് നീ എന്റെ കൈകൾ ചേർത്തുപിടിക്കുന്നതാണ്☺️",
+    modalMessage: "You are more than a friend—you are family. Thank you for all the memories, support, and laughter we share. May your day be filled with happiness and your year with success, love, and endless blessings.☺️",
     surprisePhoto: "/images/photo5.jpg"
   },
   memoryGallery: {

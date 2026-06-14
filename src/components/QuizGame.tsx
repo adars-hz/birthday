@@ -93,7 +93,7 @@ export default function QuizGame() {
               transition={{ duration: 4, repeat: Infinity }}
               className="text-4xl md:text-5xl font-extrabold mb-12 drop-shadow-2xl tracking-tight"
             >
-              വിട്ടു പോവുമോ നീ എന്റെ ജീവിതത്തിൽ നിന്ന്?
+              Am I your best friend?
             </motion.h2>
 
             <div className="flex flex-col md:flex-row items-center justify-center gap-12 relative min-h-[350px] w-full perspective-1000">
@@ -169,7 +169,9 @@ export default function QuizGame() {
               I KNEW IT! 🥰
             </motion.h3>
             <p className="text-3xl font-extrabold mb-8 text-white drop-shadow-md">
-              വെറുതെ തമാശ പറഞ്ഞതാ, നീ പോകില്ലെന്ന് എനിക്കറിയാം. 😅🫂
+              Thank you for being such an important part of my life. ❤️
+
+              No matter where life takes us, I'll always cherish our friendship, our memories, and all the crazy moments we've shared together.
             </p>
             <motion.button
               whileHover={{ scale: 1.1, rotate: -5 }}
