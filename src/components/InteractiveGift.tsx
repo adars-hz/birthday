@@ -36,7 +36,6 @@ export default function InteractiveGift() {
   return (
     <section id="gift-section" className="min-h-screen flex items-center justify-center bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 py-20 relative">
       <div className="max-w-4xl mx-auto px-4 text-center w-full flex flex-col items-center">
-        <h2 className="text-4xl md:text-6xl font-bold text-white mb-16 drop-shadow-md relative -top-24 md:-top-32">{siteContent.interactiveGift.title}</h2>
         
         <div className="grid place-items-center cursor-pointer relative" onClick={handleOpen}>
           {/* Gift Box */}
