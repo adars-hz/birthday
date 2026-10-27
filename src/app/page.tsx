@@ -1,36 +1,23 @@
 "use client";
 
-import { useState } from "react";
-import Hero from "@/components/Hero";
-import InteractiveGift from "@/components/InteractiveGift";
-import MemoryGallery from "@/components/MemoryGallery";
-import QuizGame from "@/components/QuizGame";
+import dynamic from "next/dynamic";
+
+const ThreeSeasideHall = dynamic(() => import("@/components/ThreeSeasideHall"), {
+  ssr: false,
+  loading: () => (
+    <div className="w-screen h-screen flex flex-col items-center justify-center bg-[#07080e] text-amber-200">
+      <div className="w-12 h-12 border-4 border-amber-400 border-t-transparent rounded-full animate-spin mb-4" />
+      <span className="font-cinzel text-sm tracking-widest uppercase">
+        Loading 3D Seaside Hall & Ocean...
+      </span>
+    </div>
+  ),
+});
 
 export default function Home() {
-  const [showSurprise, setShowSurprise] = useState(false);
-
-  const handleSurpriseClick = () => {
-    setShowSurprise(true);
-    // After rendering the components, scroll to the gift section
-    setTimeout(() => {
-      const giftSection = document.getElementById("gift-section");
-      if (giftSection) {
-        giftSection.scrollIntoView({ behavior: "smooth" });
-      }
-    }, 100);
-  };
-
   return (
-    <main className={`bg-slate-50 min-h-screen ${!showSurprise ? "overflow-hidden h-screen" : ""}`}>
-      <Hero onSurpriseClick={handleSurpriseClick} />
-      
-      {showSurprise && (
-        <div className="fade-in">
-          <InteractiveGift />
-          <MemoryGallery />
-          <QuizGame />
-        </div>
-      )}
+    <main className="relative w-screen h-screen overflow-hidden bg-black selection:bg-amber-400 selection:text-slate-950">
+      <ThreeSeasideHall />
     </main>
   );
 }
