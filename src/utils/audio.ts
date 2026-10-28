@@ -284,6 +284,80 @@ class SoundEngine {
     osc.start(now);
     osc.stop(now + 0.13);
   }
+
+  // Sound Effect: Grand Medieval Heavy Wooden Door Opening Creak
+  public playDoorOpen() {
+    this.initCtx();
+    if (!this.ctx) return;
+    const now = this.ctx.currentTime;
+
+    // Deep wooden friction resonance
+    const osc1 = this.ctx.createOscillator();
+    const gain1 = this.ctx.createGain();
+    osc1.type = "sawtooth";
+    osc1.frequency.setValueAtTime(65, now);
+    osc1.frequency.linearRampToValueAtTime(82, now + 0.6);
+    osc1.frequency.exponentialRampToValueAtTime(45, now + 1.2);
+
+    const filter = this.ctx.createBiquadFilter();
+    filter.type = "lowpass";
+    filter.frequency.setValueAtTime(220, now);
+    filter.frequency.linearRampToValueAtTime(380, now + 0.5);
+    filter.frequency.exponentialRampToValueAtTime(150, now + 1.2);
+
+    gain1.gain.setValueAtTime(0.001, now);
+    gain1.gain.linearRampToValueAtTime(0.25, now + 0.15);
+    gain1.gain.exponentialRampToValueAtTime(0.001, now + 1.2);
+
+    osc1.connect(filter);
+    filter.connect(gain1);
+    gain1.connect(this.ctx.destination);
+
+    osc1.start(now);
+    osc1.stop(now + 1.25);
+
+    // Subtle magical bell chime greeting from inside
+    setTimeout(() => {
+      [587.33, 880, 1174.66].forEach((f, idx) => {
+        if (!this.ctx) return;
+        const o = this.ctx.createOscillator();
+        const g = this.ctx.createGain();
+        o.type = "sine";
+        o.frequency.setValueAtTime(f, this.ctx.currentTime + idx * 0.12);
+        g.gain.setValueAtTime(0.08, this.ctx.currentTime + idx * 0.12);
+        g.gain.exponentialRampToValueAtTime(0.0001, this.ctx.currentTime + idx * 0.12 + 0.9);
+        o.connect(g);
+        g.connect(this.ctx.destination);
+        o.start(this.ctx.currentTime + idx * 0.12);
+        o.stop(this.ctx.currentTime + idx * 0.12 + 0.95);
+      });
+    }, 400);
+  }
+
+  // Sound Effect: Birthday Wish & Magical Sparkle Cascade
+  public playWishSparkle() {
+    this.initCtx();
+    if (!this.ctx) return;
+    const now = this.ctx.currentTime;
+
+    // Celestial rising arpeggio + harmonic shimmer
+    const notes = [392.0, 523.25, 659.25, 783.99, 1046.5, 1318.51, 1567.98, 2093.0];
+    notes.forEach((freq, idx) => {
+      const osc = this.ctx!.createOscillator();
+      const gain = this.ctx!.createGain();
+      osc.type = "sine";
+      osc.frequency.setValueAtTime(freq, now + idx * 0.05);
+
+      gain.gain.setValueAtTime(0, now + idx * 0.05);
+      gain.gain.linearRampToValueAtTime(0.16, now + idx * 0.05 + 0.02);
+      gain.gain.exponentialRampToValueAtTime(0.0001, now + idx * 0.05 + 1.1);
+
+      osc.connect(gain);
+      gain.connect(this.ctx!.destination);
+      osc.start(now + idx * 0.05);
+      osc.stop(now + idx * 0.05 + 1.15);
+    });
+  }
 }
 
 export const sound = new SoundEngine();
